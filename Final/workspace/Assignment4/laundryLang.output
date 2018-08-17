@@ -1,0 +1,346 @@
+Grammar
+
+    0 $accept: s $end
+
+    1 s: WASH period DRY period
+
+    2 WASH: machine wash TEMP WHAT
+    3     | hand wash WHAT
+
+    4 WHAT: TYPE
+    5     | ITEMLIST
+
+    6 TYPE: lights
+    7     | darks
+    8     | delicates
+
+    9 ITEMLIST: ITEM ITEMLIST
+   10         | ITEM
+
+   11 TEMP: hot
+   12     | warm
+   13     | cold
+
+   14 ITEM: trousers
+   15     | shirts
+   16     | underwear
+   17     | sheets
+
+   18 DRY: DHOW dry
+
+   19 DHOW: line
+   20     | tumble
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+lights (258) 6
+darks (259) 7
+delicates (260) 8
+hot (261) 11
+warm (262) 12
+cold (263) 13
+trousers (264) 14
+shirts (265) 15
+underwear (266) 16
+sheets (267) 17
+machine (268) 2
+hand (269) 3
+wash (270) 2 3
+line (271) 19
+tumble (272) 20
+dry (273) 18
+period (274) 1
+
+
+Nonterminals, with rules where they appear
+
+$accept (20)
+    on left: 0
+s (21)
+    on left: 1, on right: 0
+WASH (22)
+    on left: 2 3, on right: 1
+WHAT (23)
+    on left: 4 5, on right: 2 3
+TYPE (24)
+    on left: 6 7 8, on right: 4
+ITEMLIST (25)
+    on left: 9 10, on right: 5 9
+TEMP (26)
+    on left: 11 12 13, on right: 2
+ITEM (27)
+    on left: 14 15 16 17, on right: 9 10
+DRY (28)
+    on left: 18, on right: 1
+DHOW (29)
+    on left: 19 20, on right: 18
+
+
+State 0
+
+    0 $accept: . s $end
+
+    machine  shift, and go to state 1
+    hand     shift, and go to state 2
+
+    s     go to state 3
+    WASH  go to state 4
+
+
+State 1
+
+    2 WASH: machine . wash TEMP WHAT
+
+    wash  shift, and go to state 5
+
+
+State 2
+
+    3 WASH: hand . wash WHAT
+
+    wash  shift, and go to state 6
+
+
+State 3
+
+    0 $accept: s . $end
+
+    $end  shift, and go to state 7
+
+
+State 4
+
+    1 s: WASH . period DRY period
+
+    period  shift, and go to state 8
+
+
+State 5
+
+    2 WASH: machine wash . TEMP WHAT
+
+    hot   shift, and go to state 9
+    warm  shift, and go to state 10
+    cold  shift, and go to state 11
+
+    TEMP  go to state 12
+
+
+State 6
+
+    3 WASH: hand wash . WHAT
+
+    lights     shift, and go to state 13
+    darks      shift, and go to state 14
+    delicates  shift, and go to state 15
+    trousers   shift, and go to state 16
+    shirts     shift, and go to state 17
+    underwear  shift, and go to state 18
+    sheets     shift, and go to state 19
+
+    WHAT      go to state 20
+    TYPE      go to state 21
+    ITEMLIST  go to state 22
+    ITEM      go to state 23
+
+
+State 7
+
+    0 $accept: s $end .
+
+    $default  accept
+
+
+State 8
+
+    1 s: WASH period . DRY period
+
+    line    shift, and go to state 24
+    tumble  shift, and go to state 25
+
+    DRY   go to state 26
+    DHOW  go to state 27
+
+
+State 9
+
+   11 TEMP: hot .
+
+    $default  reduce using rule 11 (TEMP)
+
+
+State 10
+
+   12 TEMP: warm .
+
+    $default  reduce using rule 12 (TEMP)
+
+
+State 11
+
+   13 TEMP: cold .
+
+    $default  reduce using rule 13 (TEMP)
+
+
+State 12
+
+    2 WASH: machine wash TEMP . WHAT
+
+    lights     shift, and go to state 13
+    darks      shift, and go to state 14
+    delicates  shift, and go to state 15
+    trousers   shift, and go to state 16
+    shirts     shift, and go to state 17
+    underwear  shift, and go to state 18
+    sheets     shift, and go to state 19
+
+    WHAT      go to state 28
+    TYPE      go to state 21
+    ITEMLIST  go to state 22
+    ITEM      go to state 23
+
+
+State 13
+
+    6 TYPE: lights .
+
+    $default  reduce using rule 6 (TYPE)
+
+
+State 14
+
+    7 TYPE: darks .
+
+    $default  reduce using rule 7 (TYPE)
+
+
+State 15
+
+    8 TYPE: delicates .
+
+    $default  reduce using rule 8 (TYPE)
+
+
+State 16
+
+   14 ITEM: trousers .
+
+    $default  reduce using rule 14 (ITEM)
+
+
+State 17
+
+   15 ITEM: shirts .
+
+    $default  reduce using rule 15 (ITEM)
+
+
+State 18
+
+   16 ITEM: underwear .
+
+    $default  reduce using rule 16 (ITEM)
+
+
+State 19
+
+   17 ITEM: sheets .
+
+    $default  reduce using rule 17 (ITEM)
+
+
+State 20
+
+    3 WASH: hand wash WHAT .
+
+    $default  reduce using rule 3 (WASH)
+
+
+State 21
+
+    4 WHAT: TYPE .
+
+    $default  reduce using rule 4 (WHAT)
+
+
+State 22
+
+    5 WHAT: ITEMLIST .
+
+    $default  reduce using rule 5 (WHAT)
+
+
+State 23
+
+    9 ITEMLIST: ITEM . ITEMLIST
+   10         | ITEM .
+
+    trousers   shift, and go to state 16
+    shirts     shift, and go to state 17
+    underwear  shift, and go to state 18
+    sheets     shift, and go to state 19
+
+    $default  reduce using rule 10 (ITEMLIST)
+
+    ITEMLIST  go to state 29
+    ITEM      go to state 23
+
+
+State 24
+
+   19 DHOW: line .
+
+    $default  reduce using rule 19 (DHOW)
+
+
+State 25
+
+   20 DHOW: tumble .
+
+    $default  reduce using rule 20 (DHOW)
+
+
+State 26
+
+    1 s: WASH period DRY . period
+
+    period  shift, and go to state 30
+
+
+State 27
+
+   18 DRY: DHOW . dry
+
+    dry  shift, and go to state 31
+
+
+State 28
+
+    2 WASH: machine wash TEMP WHAT .
+
+    $default  reduce using rule 2 (WASH)
+
+
+State 29
+
+    9 ITEMLIST: ITEM ITEMLIST .
+
+    $default  reduce using rule 9 (ITEMLIST)
+
+
+State 30
+
+    1 s: WASH period DRY period .
+
+    $default  reduce using rule 1 (s)
+
+
+State 31
+
+   18 DRY: DHOW dry .
+
+    $default  reduce using rule 18 (DRY)

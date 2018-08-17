@@ -1,0 +1,44 @@
+Compiler Design:
+	Week 3: Lecture 2
+
+		Regular Expressions
+			(Machine = Finite State Automata)    Context Free Grammars C Context Sensitive Grammars(machine = turing machines)
+
+			Not Context Free:	aaabbbccc - there has to be as many b's and c's as there are a's
+
+
+			w = aaba  		aaba/w	c/c 	abaa/w^R
+
+				Regular Expressions are recognized by CFGs with productions restricetd to either:
+					A -> a B, or C -> d
+						Example: (ab)*bab:
+							S -> a b s
+							S -> b a b
+
+							or 
+
+							S -> a T
+							S -> b U
+							T -> b S
+							U -> a V
+							V -> b
+
+
+				Derivations:
+		● If A -> γ is a production, then
+		– αAβ => αγβ is one step of a derivation
+		– αAβ =>+ αγβ is one or more steps
+		– αAβ =>* αγβ is zero or more steps
+		● SF(G): the sentential forms of the context-free
+		grammar G:
+		– SF(G) = {S =>* β}
+		● L(G): The language (terminals only) of grammar G:
+		– L(G) = {w ∈ Σ*
+		|N =>+ w}
+
+
+		----------------------------------------------------
+
+
+		
+			

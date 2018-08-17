@@ -1,0 +1,15 @@
+Compiler Design
+
+	Week 3:
+
+		Regular Expression -> NFA
+
+			DFA e.g.
+				(a|b)* abb
+						
+						a(a|b)*b
+
+				
+							
+			
+				

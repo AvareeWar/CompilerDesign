@@ -1,0 +1,35 @@
+Scanner: two parts
+	Character -> "lexemes"(strings)
+	"lexemes" -> tokens(data structer rep. parts of 		program)
+
+Parser
+	Builds data-structer(generally tree) corresponding to structure of program
+
+Type Checker
+	Check types
+
+Translator
+	Translates data structer to new format(e.g. assembly language)
+
+Optimizer
+	Gets rid of inefficiencies in new code
+
+Code Generator
+	write new code
+
+Symbol Table
+	Keeps track of user-defined "symbols" (functions, variables, types, classes, etc)
+
+	
+
+									Defining Grammar with Productions
+
+A way to:
+	Specify a grammar for a language
+	Generate grammatical(but perhaps nonsensical) sentences in that language can be generated
+
+Let's use simplified English as an example
+
+Terminals: symbols that mean specific strings in the language.
+
+

@@ -1,0 +1,23 @@
+Compiler Design:
+	
+	Lecture 2:
+
+		Regular Expressions:
+
+			(+|-|L) (D*.D|D.D*)
+					
+						1e1				(+|-|L) [(D*.D|D.D*)(e|E)(+|-|L) D | D*|D*.D]
+						1.0e1			
+						.0e1
+						1.e1
+
+						"This is a \" string\" \n"			"(not(",\)|\("|\|t|n)*"
+
+						
+							
+							
+					
+					
+			
+		
+			

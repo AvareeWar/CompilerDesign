@@ -1,0 +1,37 @@
+Assignment #4:
+
+Use struct to maintain internal design
+
+		Trousers: machine washed in cold. Tumbled dry.
+		Shirts: machine washed in cold. Tumbled dry.
+
+
+
+	---	example for enums:--------------------------------------
+			
+
+			typedef enum{
+
+				COLD_TEMP,
+				WARM_TEMP,
+				HOT_TEMP,
+			}
+			HowWash_ty;
+
+		
+
+			typedef enum{
+				HAND_WASH,
+				MACHINE_WASH
+			}
+			howDry_ty;
+
+
+			struct LaundrySummary{
+				temperature_ty temp_;
+				howWash_ty	howWash;
+				howDry_ty	howDry;
+			}
+
+
+	------------------------------------------------------------
